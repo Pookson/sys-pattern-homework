@@ -1,0 +1,25 @@
+---
+- name: Download and unpack Kafka archive
+  hosts: web_servers
+  become: yes
+
+  tasks:
+    - name: Create directory for Kafka archive
+      file:
+        path: /home/vagrant/kafka
+        state: directory
+      become: yes
+
+    - name: Download Kafka archive
+      get_url:
+        url: https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz
+        dest: /home/vagrant/kafka/kafka-3.4.0-src.tgz
+      become: yes
+
+    - name: Extract Kafka archive
+      unarchive:
+        src: /home/vagrant/kafka/kafka-3.4.0-src.tgz
+        dest: /home/vagrant/kafka
+        copy: no
+        extra_opts: [--strip-components=1]
+      become: yes
