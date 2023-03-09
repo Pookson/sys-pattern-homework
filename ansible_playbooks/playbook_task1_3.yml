@@ -1,0 +1,16 @@
+---
+- name: Change MOTD message
+  hosts: web_servers
+  become: yes
+
+  tasks:
+    - name: Create MOTD file if it does not exist
+      file:
+        path: /etc/motd
+        state: touch
+
+    - name: Update MOTD file
+      lineinfile:
+        path: /etc/motd
+        regexp: '.*'
+        line: 'Hello, Pookson'
