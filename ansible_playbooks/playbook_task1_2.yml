@@ -1,0 +1,22 @@
+---
+- name: Install and configure tuned
+  hosts: web_servers
+  become: yes
+
+  tasks:
+    - name: Install tuned package
+      package:
+        name: tuned
+        state: present
+
+    - name: Start and enable tuned service
+      service:
+        name: tuned
+        state: started
+        enabled: yes
+
+    - name: Create symlink for tuned service
+      file:
+        src: /usr/lib/systemd/system/tuned.service
+        dest: /etc/systemd/system/multi-user.target.wants/tuned.service
+        state: link
