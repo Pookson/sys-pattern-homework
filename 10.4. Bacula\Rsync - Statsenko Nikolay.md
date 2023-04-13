@@ -249,7 +249,7 @@ Messages {
   director = ubuntu-master-dir = all
 }
 ```
-#### bacula-sd.conf
+#### bacula-fd.conf
 ```
 Director {
   Name = ubuntu-master-dir
@@ -281,3 +281,54 @@ Messages {
 ![Task2_2](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/10.4/bacula_task2_2.png)
 
 ### Задание 3
+
+#### master conf
+```
+pid file = /var/run/rsyncd.pid
+log file = /var/log/rsyncd.log
+transfer logging = true
+munge symlinks = yes
+# папка источник для бэкапа
+[data]
+path = /data
+uid = root
+read only = yes
+list = yes
+comment = Data backup Dir
+auth users = backup
+secrets file = /etc/rsyncd.scrt
+```
+
+#### slave conf
+```
+pid file = /var/run/rsyncd.pid
+log file = /var/log/rsyncd.log
+transfer logging = true
+munge symlinks = yes
+```
+
+#### script
+```
+#!/bin/bash
+
+echo "$(date)"
+# Folder to store backups. Create the folder if it doesn't exist.
+syst_dir="/backup/"
+sudo mkdir -p "${syst_dir}"
+# Name of the server being backed up
+srv_name="ubuntu-master"
+# IP address of the server being backed up
+srv_ip="192.168.128.199"
+# User account used to access the server being backed up
+srv_user="backup"
+# Directory to be backed up on the server
+srv_dir="data"
+echo "Start backup ${srv_name}"
+# Create a folder for incremental backups
+sudo mkdir -p "${syst_dir}${srv_name}/increment/"
+sudo /usr/bin/rsync -avz --progress --delete --password-file=/etc/rsyncd.scrt "${srv_user}@${srv_ip}::${srv_dir}" "${syst_dir}${srv_name}/current/" --backup --backup-dir="${syst_dir}${srv_name}/increment/$(date +%Y-%m-%d)/"
+sudo /usr/bin/find "${syst_dir}${srv_name}/increment/" -maxdepth 1 -type d -mtime +30 -exec rm -rf {} \;
+echo "$(date)"
+echo "Finish backup ${srv_name}"
+```
+![Task3](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/10.4/bacula_task3.png)
