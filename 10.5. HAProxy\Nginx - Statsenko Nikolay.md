@@ -45,8 +45,24 @@ Weighted Round Robin (WRR) - это усовершенствованная ве�
 ### Задание 5
 
 #### nginx conf
-```
 
 ```
-![Task5]()
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+}
+
+http {
+        server {
+                listen 8088;
+                location /ping {
+                        return 200 'nginx is configured correctly';
+                }
+        }
+{
+```
+![Task5](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/10.5/haproxy_task5.png)
 
