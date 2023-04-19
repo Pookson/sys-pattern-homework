@@ -37,10 +37,10 @@ Weighted Round Robin (WRR) - это усовершенствованная ве�
     Если нужна более гибкая настройка балансировки нагрузки.
 
 ### Задание 3
-![Task3]()
+![Task3](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/10.5/haproxy_task3.png)
 
 ### Задание 4
-![Task4]()
+![Task4](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/10.5/haproxy_task4.png)
 
 ### Задание 5
 
