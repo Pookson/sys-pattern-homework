@@ -66,3 +66,17 @@ http {
 ```
 ![Task5](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/10.5/haproxy_task5.png)
 
+### Задание 6
+
+#### haproxy conf
+
+```
+#помимо дефолтных настроек haproxy добавил:
+listen example
+       bind :8080
+       server node1 localhost:8088
+```
+![Task6](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/10.5/haproxy_task6.png)
+
+Так нужно было выполнить задание? Или нужен был редирект с localhost:8080 на localhost:8088/ping, или вообще передлать конфиг из 5го задания?
+
