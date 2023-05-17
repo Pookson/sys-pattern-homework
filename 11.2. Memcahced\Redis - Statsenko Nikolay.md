@@ -24,6 +24,7 @@
 
 ### Задание 3
 
+####Python script
 ```
 import memcache
 import time
