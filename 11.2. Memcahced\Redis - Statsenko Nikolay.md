@@ -20,12 +20,45 @@
 
 ### Задание 2
 
-![Task2]()
+![Task2](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/11.2/memred_task2.png)
 
 ### Задание 3
 
-![Task3]()
+```
+import memcache
+import time
+
+# Создание соединения с memcached
+client = memcache.Client(['127.0.0.1:11211'])
+
+# Запись ключей в memcached с TTL 5, 30, 60 секунд
+client.set('key0', 'value0', time=5)
+client.set('key1', 'value1', time=5)
+client.set('key2', 'value2', time=5)
+client.set('key3', 'value3', time=30)
+client.set('key4', 'value4', time=60)
+
+# Ожидание 5 секунд
+time.sleep(5)
+
+# Проверка истечения ключей
+key0_expired = client.get('key0') is None
+key1_expired = client.get('key1') is None
+key2_expired = client.get('key2') is None
+key3_expired = client.get('key3') is None
+key4_expired = client.get('key4') is None
+
+print("Key 'key0' expired:", key0_expired)
+print("Key 'key1' expired:", key1_expired)
+print("Key 'key2' expired:", key2_expired)
+print("Key 'key3' expired:", key3_expired)
+print("Key 'key4' expired:", key4_expired)
+```
+
+![Task3](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/11.2/memred_task3.png)
 
 ### Задание 4
+
+
 
 ![Task4]()
