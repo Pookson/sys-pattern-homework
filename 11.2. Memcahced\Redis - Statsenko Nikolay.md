@@ -60,6 +60,19 @@ print("Key 'key4' expired:", key4_expired)
 
 ### Задание 4
 
+```
+import redis
+import time
 
+# Создание подключения к Redis
+r = redis.Redis(host='localhost', port=6379)
 
-![Task4]()
+# Запись ключей в Redis
+r.setex('key0', 300, 'value0')
+r.setex('key1', 300, 'value1')
+r.setex('key2', 300, 'value2')
+r.setex('key3', 300, 'value3')
+r.setex('key4', 300, 'value4')
+```
+
+![Task4](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/11.2/memred_task4.png)
