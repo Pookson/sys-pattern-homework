@@ -78,6 +78,6 @@ r.setex('key4', 300, 'value4')
 
 ![Task4](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/11.2/memred_task4.png)
 
-### Задание 4
+### Задание 5
 
 ![Task5](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/11.2/memred_task5.png)
