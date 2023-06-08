@@ -51,5 +51,3 @@ sudo mysql -u sys_temp -p sakila < ~/sakila-db/sakila-data.sql
 ### Задание 2
 
 ![Task2](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task2.png)
-
-### Задание 3
