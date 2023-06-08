@@ -4,7 +4,7 @@
 
 1.1. Поднимите чистый инстанс MySQL версии 8.0+.
 
-![Task1](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_1.png)
+![Task1_1](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_1.png)
 
 1.2. Создайте учётную запись sys_temp.
 ```
@@ -16,7 +16,7 @@ CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'password';
 SELECT User, Host FROM mysql.user;
 ```
 
-![Task1](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_2.png)
+![Task1_2](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_2.png)
 
 1.4. Дайте все права для пользователя sys_temp.
 ```
@@ -27,7 +27,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost';
 ```
 SHOW GRANTS FOR 'sys_temp'@'localhost';
 ```
-![Task1](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_3.png)
+![Task1_3](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_3.png)
 
 1.6.1 Переподключитесь к базе данных от имени sys_temp.
 ```
@@ -46,8 +46,10 @@ sudo mysql -u sys_temp -p sakila < ~/sakila-db/sakila-data.sql
 
 1.8. При работе в IDE сформируйте ER-диаграмму получившейся базы данных.
 
-![Task1](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_4.png)
+![Task1_4](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task1_4.png)
 
 ### Задание 2
+
+![Task2](https://raw.githubusercontent.com/Pookson/sys-pattern-homework/main/img/12.2/ddl_task2.png)
 
 ### Задание 3
